@@ -12,7 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
-public class {{enity.nameUpper}}Doc {
+public class {{entity.nameUpper}}Doc {
     @Id
     {{#entityProperties}}
             {{level}} {{type}} {{name}};

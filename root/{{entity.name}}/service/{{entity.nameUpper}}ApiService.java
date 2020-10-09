@@ -3,13 +3,13 @@ package {{path}}.{{entity.name}}.service;
 import com.rmaslov.blog.base.api.request.SearchRequest;
 import com.rmaslov.blog.base.api.response.SearchResponse;
 import {{path}}.{{entity.name}}.api.request.RegistrationRequest;
-import {{path}}.{{entity.name}}.api.request.{{enity.nameUpper}}Request;
-import {{path}}.{{entity.name}}.exception.{{enity.nameUpper}}ExistException;
-import {{path}}.{{entity.name}}.exception.{{enity.nameUpper}}NotExistException;
-import {{path}}.{{entity.name}}.model.{{enity.nameUpper}}Doc;
-import {{path}}.{{entity.name}}.repository.{{enity.nameUpper}}Repository;
+import {{path}}.{{entity.name}}.api.request.{{entity.nameUpper}}Request;
+import {{path}}.{{entity.name}}.exception.{{entity.nameUpper}}ExistException;
+import {{path}}.{{entity.name}}.exception.{{entity.nameUpper}}NotExistException;
+import {{path}}.{{entity.name}}.model.{{entity.nameUpper}}Doc;
+import {{path}}.{{entity.name}}.repository.{{entity.nameUpper}}Repository;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.{{enity.nameUpper}};
+import org.apache.catalina.{{entity.nameUpper}};
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -23,20 +23,20 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class {{enity.nameUpper}}ApiService {
-    private final {{enity.nameUpper}}Repository {{enity.name}}Repository;
+public class {{entity.nameUpper}}ApiService {
+    private final {{entity.nameUpper}}Repository {{entity.name}}Repository;
     private final MongoTemplate mongoTemplate;
 
-    public {{enity.nameUpper}}Doc create({{enity.nameUpper}}Request request) throws {{enity.nameUpper}}ExistException {
-        {{enity.nameUpper}}Doc {{enity.name}}Doc = {{enity.nameUpper}}Mapping.getInstance().getRequest().convert(request);
-        return {{enity.name}}Doc;
+    public {{entity.nameUpper}}Doc create({{entity.nameUpper}}Request request) throws {{entity.nameUpper}}ExistException {
+        {{entity.nameUpper}}Doc {{entity.name}}Doc = {{entity.nameUpper}}Mapping.getInstance().getRequest().convert(request);
+        return {{entity.name}}Doc;
     }
 
-    public Optional<{{enity.nameUpper}}Doc> findById(ObjectId id){
-        return  {{enity.name}}Repository.findById(id);
+    public Optional<{{entity.nameUpper}}Doc> findById(ObjectId id){
+        return  {{entity.name}}Repository.findById(id);
     }
 
-    public SearchResponse<{{enity.nameUpper}}Doc> search(
+    public SearchResponse<{{entity.nameUpper}}Doc> search(
              SearchRequest request
     ){
         Criteria criteria = new Criteria();
@@ -48,29 +48,29 @@ public class {{enity.nameUpper}}ApiService {
         }
 
         Query query = new Query(criteria);
-        Long count = mongoTemplate.count(query, {{enity.nameUpper}}Doc.class);
+        Long count = mongoTemplate.count(query, {{entity.nameUpper}}Doc.class);
 
         query.limit(request.getSize());
         query.skip(request.getSkip());
 
-        List<{{enity.nameUpper}}Doc> {{enity.name}}Docs = mongoTemplate.find(query, {{enity.nameUpper}}Doc.class);
-        return SearchResponse.of({{enity.name}}Docs, count);
+        List<{{entity.nameUpper}}Doc> {{entity.name}}Docs = mongoTemplate.find(query, {{entity.nameUpper}}Doc.class);
+        return SearchResponse.of({{entity.name}}Docs, count);
     }
 
-    public {{enity.nameUpper}}Doc update({{enity.nameUpper}}Request request) throws {{enity.nameUpper}}NotExistException {
-        Optional<{{enity.nameUpper}}Doc> {{enity.name}}DocOptional = {{enity.name}}Repository.findById(request.getId());
-        if({{enity.name}}DocOptional.isPresent() == false){
-            throw new {{enity.nameUpper}}NotExistException();
+    public {{entity.nameUpper}}Doc update({{entity.nameUpper}}Request request) throws {{entity.nameUpper}}NotExistException {
+        Optional<{{entity.nameUpper}}Doc> {{entity.name}}DocOptional = {{entity.name}}Repository.findById(request.getId());
+        if({{entity.name}}DocOptional.isPresent() == false){
+            throw new {{entity.nameUpper}}NotExistException();
         }
 
-        {{enity.nameUpper}}Doc {{enity.name}}Doc = {{enity.nameUpper}}Mapping.getInstance().getRequest().convert(request);
-        {{enity.name}}Doc.setId(request.getId());
-        {{enity.name}}Repository.save({{enity.name}}Doc);
+        {{entity.nameUpper}}Doc {{entity.name}}Doc = {{entity.nameUpper}}Mapping.getInstance().getRequest().convert(request);
+        {{entity.name}}Doc.setId(request.getId());
+        {{entity.name}}Repository.save({{entity.name}}Doc);
 
-        return {{enity.name}}Doc;
+        return {{entity.name}}Doc;
     }
 
     public void delete(ObjectId id){
-        {{enity.name}}Repository.deleteById(id);
+        {{entity.name}}Repository.deleteById(id);
     }
 }

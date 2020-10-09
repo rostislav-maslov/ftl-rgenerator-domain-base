@@ -9,8 +9,8 @@ import org.bson.types.ObjectId;
 
 @Getter
 @Setter
-@ApiModel(value = "{{enity.nameUpper}}Request", description = "Model for update {{enity.name}}")
-public class {{enity.nameUpper}}Request {
+@ApiModel(value = "{{entity.nameUpper}}Request", description = "Model for update {{entity.name}}")
+public class {{entity.nameUpper}}Request {
     {{#entityProperties}}
         {{level}} {{type}} {{name}};
     {{/entityProperties}}

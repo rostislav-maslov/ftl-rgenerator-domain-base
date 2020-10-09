@@ -10,8 +10,8 @@ import lombok.experimental.SuperBuilder;
 @Setter
 @SuperBuilder
 @AllArgsConstructor
-@ApiModel(value = "{{enity.nameUpper}}Response", description = "{{enity.nameUpper}} data(for search and list)")
-public class {{enity.nameUpper}}Response {
+@ApiModel(value = "{{entity.nameUpper}}Response", description = "{{entity.nameUpper}} data(for search and list)")
+public class {{entity.nameUpper}}Response {
     {{#entityProperties}}
         protected {{type}} {{name}};
     {{/entityProperties}}

@@ -1,4 +1,4 @@
 package {{path}}.{{entity.name}}.exception;
 
-public class {{enity.nameUpper}}NotExistException extends Exception {
+public class {{entity.nameUpper}}NotExistException extends Exception {
 }
