@@ -1,22 +1,19 @@
 package {{path}}.{{entity.name}}.service;
 
+import {{path}}.{{entity.name}}.mapping.{{entity.nameUpper}}Mapping;
 import com.rmaslov.blog.base.api.request.SearchRequest;
 import com.rmaslov.blog.base.api.response.SearchResponse;
-import {{path}}.{{entity.name}}.api.request.RegistrationRequest;
 import {{path}}.{{entity.name}}.api.request.{{entity.nameUpper}}Request;
 import {{path}}.{{entity.name}}.exception.{{entity.nameUpper}}ExistException;
 import {{path}}.{{entity.name}}.exception.{{entity.nameUpper}}NotExistException;
 import {{path}}.{{entity.name}}.model.{{entity.nameUpper}}Doc;
 import {{path}}.{{entity.name}}.repository.{{entity.nameUpper}}Repository;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.{{entity.nameUpper}};
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
-import org.springframework.util.DigestUtils;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Optional;
