@@ -3,7 +3,6 @@ package {{path}}.{{entity.name}}.mapping;
 import com.rmaslov.blog.base.api.response.SearchResponse;
 import com.rmaslov.blog.base.mapping.BaseMapping;
 import {{path}}.{{entity.name}}.api.request.{{entity.nameUpper}}Request;
-import {{path}}.{{entity.name}}.api.response.{{entity.nameUpper}}FullResponse;
 import {{path}}.{{entity.name}}.api.response.{{entity.nameUpper}}Response;
 import {{path}}.{{entity.name}}.model.{{entity.nameUpper}}Doc;
 import lombok.Getter;
